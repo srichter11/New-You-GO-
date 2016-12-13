@@ -200,11 +200,11 @@ func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEdi
 // ALERT POPUP TO ADD A NEW ITEM
     
     func alert() {
-        let alert = UIAlertController(title:"Add a to do", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title:"Add a goal", message: "", preferredStyle: .alert)
         
         alert.addTextField{
             (textfield:UITextField) in
-            textfield.placeholder = "Add a to do"
+            textfield.placeholder = "What do you want to achieve?"
             
         }
         

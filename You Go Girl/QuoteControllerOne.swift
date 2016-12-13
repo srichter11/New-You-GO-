@@ -11,6 +11,10 @@ import UIKit
 
 class QuoteControllerOne: UIViewController {
     
+
+    @IBAction func heartButton(_ sender: Any) {
+        // saveFavorite ()
+    }
     
     @IBOutlet weak var quoteLabel: UILabel!
     
@@ -48,6 +52,17 @@ class QuoteControllerOne: UIViewController {
             
             "\"Do your thing and don't care if they like it\"": "tina-fey.jpeg"]
         
+        let buttonValuesArray =
+        
+            ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "Watch her DNC speech",
+             
+             "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "Volunteer to help girls",
+             
+             "\"No one can make you feel inferior without your consent\"": "Read more about Eleanor",
+             
+             "\"We realize the importance of our voices only when we are silenced.\"": "Watch her Daily Show Interview",
+             
+             "\"Do your thing and don't care if they like it\"": "Read more from Bossypants"]
         
         
         // SWIPE SETUP
@@ -55,6 +70,9 @@ class QuoteControllerOne: UIViewController {
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(QuoteControllerOne.swipeLeft))
         recognizer.direction = .left
         self.view .addGestureRecognizer(recognizer)
+        
+  
+        
         
         // QUOTE LABEL SETUP
         
@@ -90,7 +108,18 @@ class QuoteControllerOne: UIViewController {
         
         */
         
+        //SAVE FAVORITE SETUP
         
+        
+        func saveFavorite () {
+            
+            var favoriteArray = [""]
+            favoriteArray.append(label.text!)
+            
+        }
+    
+        
+
         
         // AUTHOR LABEL SETUP
         
@@ -117,10 +146,10 @@ class QuoteControllerOne: UIViewController {
         
       // BUTTON SETUP
         
-        let linkButton = UIButton(frame: CGRect(x:0, y:0, width: 250, height: 80))
-        linkButton.titleLabel!.font = UIFont(name: "Futura", size: CGFloat(15))
+        let linkButton = UIButton(frame: CGRect(x:0, y:0, width: 700, height: 80))
+        linkButton.titleLabel!.font = UIFont(name: "Futura", size: CGFloat(14))
         linkButton.tintColor = UIColor.blue
-        linkButton.setTitle("Watch the speech", for: .normal)
+        linkButton.setTitle(buttonValuesArray[label.text!], for: .normal)
         linkButton.layer.borderColor = UIColor.clear.cgColor
         linkButton.layer.borderWidth = 0.5
         linkButton.layer.cornerRadius = 8
@@ -135,7 +164,7 @@ class QuoteControllerOne: UIViewController {
         
         let horizontalConstraintButton = NSLayoutConstraint(item: linkButton, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: authorLabel, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
         
-        let widthContraints =  NSLayoutConstraint(item: linkButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 200)
+        let widthContraints =  NSLayoutConstraint(item: linkButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 700)
         let heightContraints = NSLayoutConstraint(item: linkButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 30)
         
         NSLayoutConstraint.activate([verticalSpaceButton, horizontalConstraintButton, widthContraints, heightContraints])
@@ -182,6 +211,9 @@ class QuoteControllerOne: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    
     
     
 }
