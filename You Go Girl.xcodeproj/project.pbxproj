@@ -35,6 +35,7 @@
 		5539BEA11DFE598800440E92 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEA01DFE598800440E92 /* WebViewController.swift */; };
 		5539BEA51DFFA07D00440E92 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */; };
 		5539BEA71DFFA78600440E92 /* BookmarkPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */; };
+		5539BEAB1E01073D00440E92 /* QuoteDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */; };
 		55883B871DD7A5A900F9EB10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883B861DD7A5A900F9EB10 /* AppDelegate.swift */; };
 		55883B891DD7A5A900F9EB10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883B881DD7A5A900F9EB10 /* ViewController.swift */; };
 		55883B8C1DD7A5A900F9EB10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55883B8A1DD7A5A900F9EB10 /* Main.storyboard */; };
@@ -100,6 +101,7 @@
 		5539BEA01DFE598800440E92 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkPhotoCell.swift; sourceTree = "<group>"; };
+		5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDataSet.swift; sourceTree = "<group>"; };
 		55883B831DD7A5A900F9EB10 /* You Go Girl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "You Go Girl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55883B861DD7A5A900F9EB10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55883B881DD7A5A900F9EB10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				55883BC81DD82AE000F9EB10 /* HitList.xcdatamodeld */,
 				55883BBA1DD7DBA000F9EB10 /* MyCustomButton.swift */,
 				55883BB81DD7C84100F9EB10 /* QuoteControllerOne.swift */,
+				5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */,
 				55883BB41DD7AB8B00F9EB10 /* ItemTableViewCell.swift */,
 				55883B8D1DD7A5A900F9EB10 /* Assets.xcassets */,
 				5539BE961DFE49AE00440E92 /* Angela-Merkel.jpg */,
@@ -414,6 +417,7 @@
 				5539BEA11DFE598800440E92 /* WebViewController.swift in Sources */,
 				55883BB51DD7AB8B00F9EB10 /* ItemTableViewCell.swift in Sources */,
 				55883B871DD7A5A900F9EB10 /* AppDelegate.swift in Sources */,
+				5539BEAB1E01073D00440E92 /* QuoteDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

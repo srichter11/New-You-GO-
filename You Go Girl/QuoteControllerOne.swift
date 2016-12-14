@@ -8,61 +8,70 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class QuoteControllerOne: UIViewController {
     
+    // QUOTE DATA SETUP
+    
+    let quoteAuthorValues =
+        ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "- Hilary Clinton",
+         
+         "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "- Michelle Obama",
+         
+         "\"No one can make you feel inferior without your consent\"": "- Eleanor Roosevelt",
+         
+         "\"We realize the importance of our voices only when we are silenced.\"": "- Malala Yousfzai",
+         
+         "\"Do your thing and don't care if they like it\"": "-Tina Fey"]
+    
+    let quoteImageValues =
+        
+        ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "hilary.jpg",
+         
+         "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "michelle.jpg",
+         
+         "\"No one can make you feel inferior without your consent\"": "EleanorRoosevelt.jpg",
+         
+         "\"We realize the importance of our voices only when we are silenced.\"": "malala.jpeg",
+         
+         "\"Do your thing and don't care if they like it\"": "tina-fey.jpeg"]
+    
+    let buttonValuesArray =
+        
+        ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "Watch her DNC speech",
+         
+         "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "Volunteer to help girls",
+         
+         "\"No one can make you feel inferior without your consent\"": "Read more about Eleanor",
+         
+         "\"We realize the importance of our voices only when we are silenced.\"": "Watch her Daily Show Interview",
+         
+         "\"Do your thing and don't care if they like it\"": "Read more from Bossypants"]
+    
+    
+    var label: UILabel!
+    
+    var savedBookmarks = [NSManagedObject]()
 
-    @IBAction func heartButton(_ sender: Any) {
-        // saveFavorite ()
+    
+    func randomQuote () -> String {
+    
+    //let quoteArray = ["\"No one can make you feel inferior without your consent\"", "\"Never stop believing that fighting for what's right is worth it. It is.\"", "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"", "\"We realize the importance of our voices only when we are silenced.\"", "\"Do your thing and don't care if they like it\""]
+               
+        let quoteSelect = QuoteDataSet()
+        
+        let randomQuoteSelection = quoteSelect.quoteArray[Int(arc4random_uniform(UInt32(quoteSelect.quoteArray.count)))]
+        
+        print(quoteSelect.quoteArray)
+        
+        return randomQuoteSelection
     }
     
-    @IBOutlet weak var quoteLabel: UILabel!
     
-    @IBOutlet weak var quoteAuthorLabel: UILabel!
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // QUOTE DATA SETUP
-        
-        let quoteArray = ["\"No one can make you feel inferior without your consent\"", "\"Never stop believing that fighting for what's right is worth it. It is.\"", "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"", "\"We realize the importance of our voices only when we are silenced.\"", "\"Do your thing and don't care if they like it\""]
-        
-        let quoteAuthorValues =
-            ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "- Hilary Clinton",
-             
-             "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "- Michelle Obama",
-             
-             "\"No one can make you feel inferior without your consent\"": "- Eleanor Roosevelt",
-             
-             "\"We realize the importance of our voices only when we are silenced.\"": "- Malala Yousfzai",
-             
-             "\"Do your thing and don't care if they like it\"": "-Tina Fey"]
-        
-        let quoteImageValues =
-            
-            ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "hilary.jpg",
-                                 
-            "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "michelle.jpg",
-                                 
-            "\"No one can make you feel inferior without your consent\"": "EleanorRoosevelt.jpg",
-            
-            "\"We realize the importance of our voices only when we are silenced.\"": "malala.jpeg",
-            
-            "\"Do your thing and don't care if they like it\"": "tina-fey.jpeg"]
-        
-        let buttonValuesArray =
-        
-            ["\"Never stop believing that fighting for what's right is worth it. It is.\"": "Watch her DNC speech",
-             
-             "\"When you've worked hard, and done well, and walked through that doorway of opportunity, you do not slam it shut behind you. You reach back.\"": "Volunteer to help girls",
-             
-             "\"No one can make you feel inferior without your consent\"": "Read more about Eleanor",
-             
-             "\"We realize the importance of our voices only when we are silenced.\"": "Watch her Daily Show Interview",
-             
-             "\"Do your thing and don't care if they like it\"": "Read more from Bossypants"]
         
         
         // SWIPE SETUP
@@ -71,13 +80,10 @@ class QuoteControllerOne: UIViewController {
         recognizer.direction = .left
         self.view .addGestureRecognizer(recognizer)
         
-  
-        
         
         // QUOTE LABEL SETUP
         
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         label.center.x = self.view.center.x
         label.center.y = self.view.center.y
         label.textAlignment = NSTextAlignment.center
@@ -88,8 +94,10 @@ class QuoteControllerOne: UIViewController {
         //label.backgroundColor = UIColor(red: 0.014, green: 0.043, blue: 0.051, alpha: 0.7)
         label.font = UIFont(name: "Futura", size: CGFloat(30))
         label.textColor = UIColor.white.withAlphaComponent(1)
-        label.text = quoteArray[Int(arc4random_uniform(UInt32(quoteArray.count)))]
+        label.text = randomQuote()
+        //label.text = quoteArray[Int(arc4random_uniform(UInt32(quoteArray.count)))]
         self.view.addSubview(label)
+        
         
         /*
         
@@ -107,18 +115,7 @@ class QuoteControllerOne: UIViewController {
         NSLayoutConstraint.activate([verticalSpaceLabel, horizontalConstraintLabel, heightConstraintLabel, widthConstraintLabel])
         
         */
-        
-        //SAVE FAVORITE SETUP
-        
-        
-        func saveFavorite () {
-            
-            var favoriteArray = [""]
-            favoriteArray.append(label.text!)
-            
-        }
     
-        
 
         
         // AUTHOR LABEL SETUP
@@ -212,7 +209,53 @@ class QuoteControllerOne: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // FAVORITE SETUP // NOTE THAT THIS PICKS A NEW RANDOM EVERY TIME. NEED TO FIX
+    
+    func saveBookmark(_ pics: String) {
+        //1
+        let appDelegate =
+            UIApplication.shared.delegate as! AppDelegate
+        
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entity(forEntityName: "Bookmark",
+                                                 in:managedContext)
+        
+        let bookmark = NSManagedObject(entity: entity!,
+                                       insertInto: managedContext)
+        
+        //3
+        bookmark.setValue(pics, forKey: "pics")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            savedBookmarks.append(bookmark)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
 
+    
+    @IBAction func heartButton(_ sender: Any) {
+        
+        func saveFavorite () {
+            
+            print(label.text!)
+            
+            var favoriteAdd = ""
+            favoriteAdd.append(label.text!)
+            print(favoriteAdd)
+            // need to pass this data to a core database that the bookmarks array can build on
+            saveBookmark(favoriteAdd)
+            
+        }
+        
+        saveFavorite ()
+    }
     
     
     

@@ -11,19 +11,22 @@ import UIKit
 class BookmarkPhotoCell: UICollectionViewCell {
     
 
-    var textLabel: UILabel!
+   //var textLabel: UILabel!
     var imageView: UIImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        textLabel = UILabel(frame: CGRect(x: 0, y: imageView.frame.size.height, width: frame.size.width, height: frame.size.height/3))
-        textLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        textLabel.textAlignment = .center
-        textLabel.textColor = UIColor.white
-        contentView.addSubview(textLabel)
+ 
+        /* textLabel = UILabel(frame: CGRect(x: 0, y: imageView.frame.size.height, width: frame.size.width, height: frame.size.height/3))
+         textLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+         textLabel.textAlignment = .center
+         textLabel.textColor = UIColor.white
+         textLabel.text = "test"
+         contentView.addSubview(textLabel)
+         */
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*1))
+        //imageView.image = UIImage(named: "Michelle.jpg")
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.sendSubview(toBack: contentView)

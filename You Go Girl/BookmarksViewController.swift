@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 // CONSTANTS
 
-let bookmarksArray = ["malala.jpeg", "michelle.jpg", "hilary.jpg"]
+let bookmarksArray = ["malala.jpeg", "michelle.jpg", "hilary.jpg", "samantha-bee.jpg", "oprah.jpg"]
 
 private let reuseIdentifier = "bookmarkCell"
 
@@ -18,6 +19,7 @@ fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0
 
 fileprivate let itemsPerRow: CGFloat = 3
 
+var savedBookmarks = [NSManagedObject]()
 
 
 // SETTING UP COLLECTION VIEW
@@ -63,7 +65,7 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return bookmarksArray.count
+        return savedBookmarks.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,15 +74,21 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
        // let bookmarkPhoto = photoForIndexPath(indexPath)
     
         // Configure the cell
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.black
         
         
         // THIS IS THE PROBLEM AREA -- CAN"T GET TO WORK
                
-        cell.textLabel.text = "Text"
-       // cell.imageView.image = UIImage(named: "michelle.jpg")
+       //cell.textLabel.text = "Text"
+       
+        let bookmarks = savedBookmarks[indexPath.row]
         
-            //UIImage(named: bookmarksArray[Int(arc4random_uniform(UInt32(bookmarksArray.count)))])
+        cell.imageView.image = UIImage(named: (bookmarks.value(forKey: "pics") as? String)!)
+
+        
+        //cell.imageView.image = UIImage(named: bookmarksArray[indexPath.row])
+        
+        
         return cell
     }
 
@@ -112,8 +120,38 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
             return sectionInsets.left
         }
     
+   
     // SELECTION
    
+    
+    // FETCH FROM THE CORE DATABASE
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //1
+        let appDelegate =
+            UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bookmark")
+        
+        //3
+        do {
+            let results =
+                try managedContext.fetch(fetchRequest)
+            savedBookmarks = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    
+    
+    
+    
     
     
     
