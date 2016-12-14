@@ -81,9 +81,16 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
                
        //cell.textLabel.text = "Text"
        
+        let quoteSelect = QuoteDataSet()
+
         let bookmarks = savedBookmarks[indexPath.row]
+        let quotePulls = bookmarks.value(forKey: "pics") as? String!
+        let imagePulls = quoteSelect.quoteImageValues[quotePulls!]
         
-        cell.imageView.image = UIImage(named: (bookmarks.value(forKey: "pics") as? String)!)
+        cell.imageView.image = UIImage(named: imagePulls!)
+        
+        
+        // cell.imageView.image = UIImage(named: (bookmarks.value(forKey: "pics") as? String)!)
 
         
         //cell.imageView.image = UIImage(named: bookmarksArray[indexPath.row])
