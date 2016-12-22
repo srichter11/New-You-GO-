@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09Q-t0-biM" id="Ykb-gF-12t">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aqk-zD-068" id="yt2-HJ-jVz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -202,10 +202,88 @@
             </objects>
             <point key="canvasLocation" x="1920.8" y="1873.313343328336"/>
         </scene>
-        <!--Bookmarks View Controller-->
+        <!--Goal View Controller2-->
+        <scene sceneID="GLr-xP-Wnk">
+            <objects>
+                <viewController id="DWS-Qy-F4Z" customClass="GoalViewController2" customModule="You_Go_Girl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fPX-Wq-wOM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q8b-hm-gR3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nsF-ue-9fA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEW-EF-smp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="ZSH-p0-CFO"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="My goal is to make a difference for those in need.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.082792396440800553" green="0.51111513119266905" blue="0.59246155099999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="Futura-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vo3-CO-zqC">
+                                <rect key="frame" x="0.0" y="118" width="375" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="Lfu-vJ-mii"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Categories"/>
+                                    <segment title="Timeline"/>
+                                </segments>
+                                <color key="tintColor" red="0.1624913657" green="0.67346319040000002" blue="0.76632035340000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14T-Xw-cka">
+                                <rect key="frame" x="0.0" y="152" width="375" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="465" id="J7x-1H-Bas"/>
+                                </constraints>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhw-ac-p0m">
+                                <rect key="frame" x="0.0" y="617" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="0PC-SG-zA5"/>
+                                    <tabBarItem systemItem="more" id="Q50-qD-x2u"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bhw-ac-p0m" firstAttribute="width" secondItem="nsF-ue-9fA" secondAttribute="width" id="4g0-UA-ML3"/>
+                            <constraint firstItem="14T-Xw-cka" firstAttribute="centerX" secondItem="nsF-ue-9fA" secondAttribute="centerX" id="53X-O5-NfB"/>
+                            <constraint firstItem="Vo3-CO-zqC" firstAttribute="centerX" secondItem="nsF-ue-9fA" secondAttribute="centerX" id="5ce-1d-25d"/>
+                            <constraint firstItem="Bhw-ac-p0m" firstAttribute="centerX" secondItem="nsF-ue-9fA" secondAttribute="centerX" id="7yT-5d-l87"/>
+                            <constraint firstItem="Bhw-ac-p0m" firstAttribute="top" secondItem="14T-Xw-cka" secondAttribute="bottom" id="9bo-4e-yj5"/>
+                            <constraint firstItem="IEW-EF-smp" firstAttribute="top" secondItem="fPX-Wq-wOM" secondAttribute="bottom" constant="8" id="Ap3-WW-1w4"/>
+                            <constraint firstItem="Q8b-hm-gR3" firstAttribute="top" secondItem="Bhw-ac-p0m" secondAttribute="bottom" constant="1" id="C3H-AG-nxT"/>
+                            <constraint firstItem="Vo3-CO-zqC" firstAttribute="top" secondItem="IEW-EF-smp" secondAttribute="bottom" constant="5" id="IuD-wN-07L"/>
+                            <constraint firstItem="IEW-EF-smp" firstAttribute="width" secondItem="nsF-ue-9fA" secondAttribute="width" id="L9W-d4-1V7"/>
+                            <constraint firstItem="Vo3-CO-zqC" firstAttribute="width" secondItem="nsF-ue-9fA" secondAttribute="width" id="Mui-jl-Jps"/>
+                            <constraint firstItem="IEW-EF-smp" firstAttribute="centerX" secondItem="nsF-ue-9fA" secondAttribute="centerX" id="WfM-NP-DAd"/>
+                            <constraint firstItem="14T-Xw-cka" firstAttribute="top" secondItem="Vo3-CO-zqC" secondAttribute="bottom" constant="1" id="XJz-Uz-VGs"/>
+                            <constraint firstItem="14T-Xw-cka" firstAttribute="width" secondItem="nsF-ue-9fA" secondAttribute="width" id="len-ba-fhn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GuH-D2-lgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2666.4000000000001" y="1873.313343328336"/>
+        </scene>
+        <!--Favorites-->
         <scene sceneID="n5b-5G-V7Q">
             <objects>
-                <collectionViewController id="pdg-aq-2Mh" customClass="BookmarksViewController" customModule="You_Go_Girl" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Favorites" id="pdg-aq-2Mh" customClass="BookmarksViewController" customModule="You_Go_Girl" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ktM-sy-hmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,12 +296,15 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bookmarkCell" id="mWc-JP-WmH" customClass="BookmarkPhotoCell" customModule="You_Go_Girl" customModuleProvider="target">
-                                <rect key="frame" x="88" y="0.0" width="200" height="300"/>
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <connections>
+                                    <segue destination="KAj-1a-GTs" kind="show" identifier="favoriteDetail" id="tO1-iL-pPg"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -234,7 +315,25 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xox-we-Pgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="424"/>
+            <point key="canvasLocation" x="2434" y="422"/>
+        </scene>
+        <!--Collection Detail View Controller-->
+        <scene sceneID="6tk-8y-xl6">
+            <objects>
+                <viewController id="KAj-1a-GTs" customClass="CollectionDetailViewController" customModule="You_Go_Girl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dpf-Ne-sbe"/>
+                        <viewControllerLayoutGuide type="bottom" id="960-KO-Z5y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qaj-oq-Qz5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oai-Gp-Uzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3143" y="421"/>
         </scene>
         <!--QuoteControllerOne-->
         <scene sceneID="A2E-PY-SsM">
@@ -279,7 +378,7 @@
                                 <segue destination="pdg-aq-2Mh" kind="show" id="OTD-9p-szr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="To Do" id="U5b-zw-uyD">
+                        <barButtonItem key="rightBarButtonItem" title="Goals" id="U5b-zw-uyD">
                             <color key="tintColor" red="0.1624913657" green="0.67346319040000002" blue="0.76632035340000004" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="Ij0-eP-TJp"/>
@@ -636,7 +735,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mMh-ZI-59S" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" alpha="0.69999999999999996" contentMode="scaleToFill" misplaced="YES" id="DGk-Yp-lBz">
+                    <navigationBar key="navigationBar" alpha="0.69999999999999996" contentMode="scaleToFill" id="DGk-Yp-lBz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.1624913657" green="0.67346319040000002" blue="0.76632035340000004" alpha="1" colorSpace="calibratedRGB"/>

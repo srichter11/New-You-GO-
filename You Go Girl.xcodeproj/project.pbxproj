@@ -36,6 +36,7 @@
 		5539BEA51DFFA07D00440E92 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */; };
 		5539BEA71DFFA78600440E92 /* BookmarkPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */; };
 		5539BEAB1E01073D00440E92 /* QuoteDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */; };
+		5539BEAD1E0230C500440E92 /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539BEAC1E0230C500440E92 /* CollectionDetailViewController.swift */; };
 		55883B871DD7A5A900F9EB10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883B861DD7A5A900F9EB10 /* AppDelegate.swift */; };
 		55883B891DD7A5A900F9EB10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883B881DD7A5A900F9EB10 /* ViewController.swift */; };
 		55883B8C1DD7A5A900F9EB10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55883B8A1DD7A5A900F9EB10 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		55883BC51DD8261200F9EB10 /* dessert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55883BC31DD8261200F9EB10 /* dessert.jpg */; };
 		55883BC71DD827D400F9EB10 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 55883BC61DD827D400F9EB10 /* bookmark.png */; };
 		55883BCA1DD82AE000F9EB10 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55883BC81DD82AE000F9EB10 /* HitList.xcdatamodeld */; };
+		55B818A31E0B5F3900C39B9D /* GoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,7 @@
 		5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkPhotoCell.swift; sourceTree = "<group>"; };
 		5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDataSet.swift; sourceTree = "<group>"; };
+		5539BEAC1E0230C500440E92 /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		55883B831DD7A5A900F9EB10 /* You Go Girl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "You Go Girl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55883B861DD7A5A900F9EB10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55883B881DD7A5A900F9EB10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		55883BC31DD8261200F9EB10 /* dessert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dessert.jpg; sourceTree = "<group>"; };
 		55883BC61DD827D400F9EB10 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
 		55883BC91DD82AE000F9EB10 /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
+		55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +181,9 @@
 			children = (
 				55883B861DD7A5A900F9EB10 /* AppDelegate.swift */,
 				55883B881DD7A5A900F9EB10 /* ViewController.swift */,
+				5539BEAC1E0230C500440E92 /* CollectionDetailViewController.swift */,
 				55883B8A1DD7A5A900F9EB10 /* Main.storyboard */,
+				55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */,
 				5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */,
 				5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */,
 				5539BEA01DFE598800440E92 /* WebViewController.swift */,
@@ -408,9 +414,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B818A31E0B5F3900C39B9D /* GoalViewController2.swift in Sources */,
 				5539BEA71DFFA78600440E92 /* BookmarkPhotoCell.swift in Sources */,
 				5539BEA51DFFA07D00440E92 /* BookmarksViewController.swift in Sources */,
 				55883BBB1DD7DBA000F9EB10 /* MyCustomButton.swift in Sources */,
+				5539BEAD1E0230C500440E92 /* CollectionDetailViewController.swift in Sources */,
 				55883BB91DD7C84100F9EB10 /* QuoteControllerOne.swift in Sources */,
 				55883B891DD7A5A900F9EB10 /* ViewController.swift in Sources */,
 				55883BCA1DD82AE000F9EB10 /* HitList.xcdatamodeld in Sources */,

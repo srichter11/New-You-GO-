@@ -11,7 +11,7 @@ import CoreData
 
 // CONSTANTS
 
-let bookmarksArray = ["malala.jpeg", "michelle.jpg", "hilary.jpg", "samantha-bee.jpg", "oprah.jpg"]
+let bookmarksArray = ["malala.jpeg", "michelle.jpg", "hilary.jpg", "varantha-bee.jpg", "oprah.jpg"]
 
 private let reuseIdentifier = "bookmarkCell"
 
@@ -22,65 +22,106 @@ fileprivate let itemsPerRow: CGFloat = 3
 var savedBookmarks = [NSManagedObject]()
 
 
-// SETTING UP COLLECTION VIEW
 
-class BookmarksViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    // SETTING UP COLLECTION VIEW
 
-    override func viewDidLoad() {
+        class BookmarksViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+
+        override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
         collectionView?.register(BookmarkPhotoCell.self, forCellWithReuseIdentifier: "bookmarkCell")
         
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView?.delegate = self
+        
+    }
+    
+    //HIGHLIGHT FUNCTION // NOTE THIS DOESNT WORK
+    
+    func highlightCell(indexPath : NSIndexPath, flag: Bool) {
+                
+    let cell = collectionView?.cellForItem(at: indexPath as IndexPath)
+                
+    if flag {
+                cell?.contentView.layer.borderWidth = 3
+                cell?.contentView.layer.borderColor = UIColor.black.cgColor
 
-        // Do any additional setup after loading the view.
+                } else {
+                    cell?.contentView.layer.borderWidth = 0
+                }
+            }
+        
+            func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+            highlightCell(indexPath: indexPath, flag: true)
+        }
+    
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        highlightCell(indexPath: indexPath, flag: false)
     }
 
+    
+
+    
+    
+    // PASS DATA ON TO DETAIL VIEW CONTROLLER
+    
+    /*
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // retrieve selected cell &amp; fruit
+        if let indexPath = getIndexPathForSelectedCell() {
+            
+            let imageInfoToPass = dataSource.fruitsInGroup(indexPath.section)[indexPath.row]
+            
+            let DetailVC = segue.destination as! CollectionDetailViewController
+            DetailVC.fruit = fruit
+        }
+    }
+    
+    func getIndexPathForSelectedCell() -> NSIndexPath? {
+    
+        var indexPath:NSIndexPath?
+        
+        if collectionView?.indexPathsForSelectedItems.count -&gt 0 {
+            indexPath = collectionView?.indexPathsForSelectedItems[0] as? NSIndexPath
+    }
+    return indexPath
+    }
+
+     */
+    
+    // OTHER OVERRIDE FUNCS
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return savedBookmarks.count
     }
 
+    
+    // CONFIGURE THE COLLECTION VIEW BASICS, EG THE CELL
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookmarkPhotoCell
         
-       // let bookmarkPhoto = photoForIndexPath(indexPath)
-    
         // Configure the cell
         cell.backgroundColor = UIColor.black
         
         
-        // THIS IS THE PROBLEM AREA -- CAN"T GET TO WORK
-               
-       //cell.textLabel.text = "Text"
-       
+    // Pull the data from core data
+        
         let quoteSelect = QuoteDataSet()
 
         let bookmarks = savedBookmarks[indexPath.row]
@@ -89,13 +130,7 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
         
         cell.imageView.image = UIImage(named: imagePulls!)
         
-        
-        // cell.imageView.image = UIImage(named: (bookmarks.value(forKey: "pics") as? String)!)
 
-        
-        //cell.imageView.image = UIImage(named: bookmarksArray[indexPath.row])
-        
-        
         return cell
     }
 
@@ -127,9 +162,7 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
             return sectionInsets.left
         }
     
-   
-    // SELECTION
-   
+    
     
     // FETCH FROM THE CORE DATABASE
     
@@ -155,42 +188,10 @@ class BookmarksViewController: UICollectionViewController, UICollectionViewDeleg
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
+
+    
+
 
 }
