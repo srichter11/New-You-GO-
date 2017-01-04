@@ -10,6 +10,32 @@ import UIKit
 
 class GoalViewController2: UIViewController {
 
+    @IBOutlet weak var TimelineTableView: UITableView!
+    
+    @IBOutlet weak var CategoriesTableView: UITableView!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // MECHANISM FOR SHOWING THE RIGHT TABLE VIEW BASED ON SEGMENT SELECTION
+    
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
+    
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            TimelineTableView.isHidden = true
+            CategoriesTableView.isHidden = false
+            break;
+        case 1:
+            TimelineTableView.isHidden = false
+            CategoriesTableView.isHidden = true
+            break;
+        default:
+            break;
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +47,4 @@ class GoalViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarkPhotoCell: UICollectionViewCell {
+class BookmarkPhotoCell: UICollectionViewCell, UICollectionViewDelegate {
     
 
    //var textLabel: UILabel!
@@ -16,14 +16,7 @@ class BookmarkPhotoCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
- 
-        /* textLabel = UILabel(frame: CGRect(x: 0, y: imageView.frame.size.height, width: frame.size.width, height: frame.size.height/3))
-         textLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-         textLabel.textAlignment = .center
-         textLabel.textColor = UIColor.white
-         textLabel.text = "test"
-         contentView.addSubview(textLabel)
-         */
+        
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*1))
         //imageView.image = UIImage(named: "Michelle.jpg")
@@ -31,7 +24,7 @@ class BookmarkPhotoCell: UICollectionViewCell {
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.sendSubview(toBack: contentView)
         contentView.addSubview(imageView)
-        
+       
         
     }
     

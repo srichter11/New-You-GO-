@@ -3,11 +3,18 @@
     <entity name="Bookmark" syncable="YES">
         <attribute name="pics" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Menu" syncable="YES">
+        <attribute name="items" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="key" value="value"/>
+        </userInfo>
+    </entity>
     <entity name="Person" syncable="YES">
         <attribute name="items" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Bookmark" positionX="-63" positionY="-9" width="128" height="60"/>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Menu" positionX="-63" positionY="-9" width="128" height="58"/>
     </elements>
 </model>

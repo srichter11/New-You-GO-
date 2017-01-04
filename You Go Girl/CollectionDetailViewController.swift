@@ -10,14 +10,21 @@ import UIKit
 
 class CollectionDetailViewController: UIViewController {
 
-    
+   var selectedIndex: Int!
+
+
     var label: UILabel!
     var imageName: String! = ""
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       // title = String(selectedIndex)
+
+    
+        let quoteSelect = QuoteDataSet()
+
 
 
         // QUOTE LABEL SETUP
@@ -33,13 +40,13 @@ class CollectionDetailViewController: UIViewController {
         //label.backgroundColor = UIColor(red: 0.014, green: 0.043, blue: 0.051, alpha: 0.7)
         label.font = UIFont(name: "Futura", size: CGFloat(30))
         label.textColor = UIColor.white.withAlphaComponent(1)
-        label.text = "test"
-        //label.text = quoteArray[Int(arc4random_uniform(UInt32(quoteArray.count)))]
+        label.text = "\"No one can make you feel inferior without your consent\""
+        //label.text = quoteSelect.quoteArray[Int(arc4random_uniform(UInt32(quoteArray.count)))]
         self.view.addSubview(label)
         
         
-        /*
-         
+
+    
          label.translatesAutoresizingMaskIntoConstraints = false
          
          let verticalSpaceLabel = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: topLayoutGuide, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -80)
@@ -53,7 +60,7 @@ class CollectionDetailViewController: UIViewController {
          
          NSLayoutConstraint.activate([verticalSpaceLabel, horizontalConstraintLabel, heightConstraintLabel, widthConstraintLabel])
          
-         */
+
         
         
         
@@ -68,7 +75,7 @@ class CollectionDetailViewController: UIViewController {
         authorLabel.adjustsFontSizeToFitWidth = true
         authorLabel.font = UIFont(name: "Futura", size: CGFloat(22))
         authorLabel.textColor = UIColor.white.withAlphaComponent(1)
-        //authorLabel.text = quoteAuthorValues[label.text!]
+        authorLabel.text = quoteSelect.quoteAuthorValues[label.text!]
         self.view.addSubview(authorLabel)
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,13 +92,13 @@ class CollectionDetailViewController: UIViewController {
         let linkButton = UIButton(frame: CGRect(x:0, y:0, width: 700, height: 80))
         linkButton.titleLabel!.font = UIFont(name: "Futura", size: CGFloat(14))
         linkButton.tintColor = UIColor.blue
-        //linkButton.setTitle(buttonValuesArray[label.text!], for: .normal)
+        linkButton.setTitle(quoteSelect.buttonValuesArray[label.text!], for: .normal)
         linkButton.layer.borderColor = UIColor.clear.cgColor
         linkButton.layer.borderWidth = 0.5
         linkButton.layer.cornerRadius = 8
         linkButton.layer.backgroundColor = UIColor.white.withAlphaComponent(0.0).cgColor
         linkButton.setTitleColor(UIColor.gray, for: UIControlState())
-        //linkButton.setTitleColor(UIColor.white, for: .normal)
+        linkButton.setTitleColor(UIColor.white, for: .normal)
         
         self.view.addSubview(linkButton)
         linkButton.translatesAutoresizingMaskIntoConstraints = false
@@ -107,14 +114,15 @@ class CollectionDetailViewController: UIViewController {
         
         //BUTTON ACTION -- NEEDS TO BE FIXED NEW SYNTAX
         
-        linkButton.addTarget(self, action: #selector(QuoteControllerOne.clickLinkButton), for: UIControlEvents.touchUpInside)
+        // linkButton.addTarget(self, action: #selector(QuoteControllerOne.clickLinkButton), for: UIControlEvents.touchUpInside)
         
         
         
         // IMAGE SETUP -- needs the dark overlay, needs to be centered, scaled and back
         
         
-       // let imageName = quoteImageValues[label.text!]
+        let imageName = quoteSelect.quoteImageValues[label.text!]
+        print(imageName!)
         let image = UIImage(named: imageName!)
         let backgroundImage = UIImageView(image: image!)
         view.sendSubview(toBack: backgroundImage)
@@ -127,7 +135,6 @@ class CollectionDetailViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
         
         
-        
     }
     
 
@@ -136,6 +143,6 @@ class CollectionDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  
+
 
 }

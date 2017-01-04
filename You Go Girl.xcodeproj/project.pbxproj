@@ -46,7 +46,6 @@
 		55883BA71DD7A5A900F9EB10 /* You_Go_GirlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883BA61DD7A5A900F9EB10 /* You_Go_GirlUITests.swift */; };
 		55883BB51DD7AB8B00F9EB10 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883BB41DD7AB8B00F9EB10 /* ItemTableViewCell.swift */; };
 		55883BB91DD7C84100F9EB10 /* QuoteControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883BB81DD7C84100F9EB10 /* QuoteControllerOne.swift */; };
-		55883BBB1DD7DBA000F9EB10 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55883BBA1DD7DBA000F9EB10 /* MyCustomButton.swift */; };
 		55883BBD1DD8132300F9EB10 /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55883BBC1DD8132300F9EB10 /* fog.jpg */; };
 		55883BC01DD8205900F9EB10 /* plants.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55883BBE1DD8205900F9EB10 /* plants.jpg */; };
 		55883BC11DD8205900F9EB10 /* sunshine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55883BBF1DD8205900F9EB10 /* sunshine.jpg */; };
@@ -55,6 +54,8 @@
 		55883BC71DD827D400F9EB10 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 55883BC61DD827D400F9EB10 /* bookmark.png */; };
 		55883BCA1DD82AE000F9EB10 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55883BC81DD82AE000F9EB10 /* HitList.xcdatamodeld */; };
 		55B818A31E0B5F3900C39B9D /* GoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */; };
+		55B818AB1E0B7F4A00C39B9D /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818AA1E0B7F4A00C39B9D /* DataSource.swift */; };
+		55E6F4561E0DC3A0004DC473 /* GoalMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6F4551E0DC3A0004DC473 /* GoalMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +121,6 @@
 		55883BA81DD7A5A900F9EB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55883BB41DD7AB8B00F9EB10 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		55883BB81DD7C84100F9EB10 /* QuoteControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteControllerOne.swift; sourceTree = "<group>"; };
-		55883BBA1DD7DBA000F9EB10 /* MyCustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
 		55883BBC1DD8132300F9EB10 /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
 		55883BBE1DD8205900F9EB10 /* plants.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plants.jpg; sourceTree = "<group>"; };
 		55883BBF1DD8205900F9EB10 /* sunshine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunshine.jpg; sourceTree = "<group>"; };
@@ -129,6 +129,8 @@
 		55883BC61DD827D400F9EB10 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
 		55883BC91DD82AE000F9EB10 /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
 		55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController2.swift; sourceTree = "<group>"; };
+		55B818AA1E0B7F4A00C39B9D /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		55E6F4551E0DC3A0004DC473 /* GoalMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,20 +181,73 @@
 		55883B851DD7A5A900F9EB10 /* You Go Girl */ = {
 			isa = PBXGroup;
 			children = (
-				55883B861DD7A5A900F9EB10 /* AppDelegate.swift */,
-				55883B881DD7A5A900F9EB10 /* ViewController.swift */,
-				5539BEAC1E0230C500440E92 /* CollectionDetailViewController.swift */,
 				55883B8A1DD7A5A900F9EB10 /* Main.storyboard */,
-				55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */,
-				5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */,
-				5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */,
-				5539BEA01DFE598800440E92 /* WebViewController.swift */,
-				55883BC81DD82AE000F9EB10 /* HitList.xcdatamodeld */,
-				55883BBA1DD7DBA000F9EB10 /* MyCustomButton.swift */,
-				55883BB81DD7C84100F9EB10 /* QuoteControllerOne.swift */,
-				5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */,
-				55883BB41DD7AB8B00F9EB10 /* ItemTableViewCell.swift */,
+				55883B861DD7A5A900F9EB10 /* AppDelegate.swift */,
+				55B818A71E0B7DA900C39B9D /* Quotes */,
+				55B818A41E0B7D5900C39B9D /* Bookmarks */,
+				55B818A51E0B7D7A00C39B9D /* Goals */,
+				55B818A91E0B7DE600C39B9D /* Photos */,
 				55883B8D1DD7A5A900F9EB10 /* Assets.xcassets */,
+				55883BC81DD82AE000F9EB10 /* HitList.xcdatamodeld */,
+				55883B8F1DD7A5A900F9EB10 /* LaunchScreen.storyboard */,
+				55883B921DD7A5A900F9EB10 /* Info.plist */,
+			);
+			path = "You Go Girl";
+			sourceTree = "<group>";
+		};
+		55883B9A1DD7A5A900F9EB10 /* You Go GirlTests */ = {
+			isa = PBXGroup;
+			children = (
+				55883B9B1DD7A5A900F9EB10 /* You_Go_GirlTests.swift */,
+				55883B9D1DD7A5A900F9EB10 /* Info.plist */,
+			);
+			path = "You Go GirlTests";
+			sourceTree = "<group>";
+		};
+		55883BA51DD7A5A900F9EB10 /* You Go GirlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				55883BA61DD7A5A900F9EB10 /* You_Go_GirlUITests.swift */,
+				55883BA81DD7A5A900F9EB10 /* Info.plist */,
+			);
+			path = "You Go GirlUITests";
+			sourceTree = "<group>";
+		};
+		55B818A41E0B7D5900C39B9D /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				5539BEA41DFFA07D00440E92 /* BookmarksViewController.swift */,
+				5539BEA61DFFA78600440E92 /* BookmarkPhotoCell.swift */,
+				5539BEAC1E0230C500440E92 /* CollectionDetailViewController.swift */,
+				55B818AA1E0B7F4A00C39B9D /* DataSource.swift */,
+			);
+			name = Bookmarks;
+			sourceTree = "<group>";
+		};
+		55B818A51E0B7D7A00C39B9D /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				55E6F4551E0DC3A0004DC473 /* GoalMenuTableViewController.swift */,
+				55B818A21E0B5F3900C39B9D /* GoalViewController2.swift */,
+				55883B881DD7A5A900F9EB10 /* ViewController.swift */,
+				55883BB41DD7AB8B00F9EB10 /* ItemTableViewCell.swift */,
+			);
+			name = Goals;
+			sourceTree = "<group>";
+		};
+		55B818A71E0B7DA900C39B9D /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				55883BB81DD7C84100F9EB10 /* QuoteControllerOne.swift */,
+				5539BEA01DFE598800440E92 /* WebViewController.swift */,
+				5539BEAA1E01073D00440E92 /* QuoteDataSet.swift */,
+			);
+			name = Quotes;
+			sourceTree = "<group>";
+		};
+		55B818A91E0B7DE600C39B9D /* Photos */ = {
+			isa = PBXGroup;
+			children = (
 				5539BE961DFE49AE00440E92 /* Angela-Merkel.jpg */,
 				5539BE971DFE49AE00440E92 /* margaret-thatcher.jpg */,
 				5539BE981DFE49AE00440E92 /* tina-fey.jpeg */,
@@ -224,28 +279,8 @@
 				55883BBC1DD8132300F9EB10 /* fog.jpg */,
 				55883BBE1DD8205900F9EB10 /* plants.jpg */,
 				55883BBF1DD8205900F9EB10 /* sunshine.jpg */,
-				55883B8F1DD7A5A900F9EB10 /* LaunchScreen.storyboard */,
-				55883B921DD7A5A900F9EB10 /* Info.plist */,
 			);
-			path = "You Go Girl";
-			sourceTree = "<group>";
-		};
-		55883B9A1DD7A5A900F9EB10 /* You Go GirlTests */ = {
-			isa = PBXGroup;
-			children = (
-				55883B9B1DD7A5A900F9EB10 /* You_Go_GirlTests.swift */,
-				55883B9D1DD7A5A900F9EB10 /* Info.plist */,
-			);
-			path = "You Go GirlTests";
-			sourceTree = "<group>";
-		};
-		55883BA51DD7A5A900F9EB10 /* You Go GirlUITests */ = {
-			isa = PBXGroup;
-			children = (
-				55883BA61DD7A5A900F9EB10 /* You_Go_GirlUITests.swift */,
-				55883BA81DD7A5A900F9EB10 /* Info.plist */,
-			);
-			path = "You Go GirlUITests";
+			name = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,15 +452,16 @@
 				55B818A31E0B5F3900C39B9D /* GoalViewController2.swift in Sources */,
 				5539BEA71DFFA78600440E92 /* BookmarkPhotoCell.swift in Sources */,
 				5539BEA51DFFA07D00440E92 /* BookmarksViewController.swift in Sources */,
-				55883BBB1DD7DBA000F9EB10 /* MyCustomButton.swift in Sources */,
 				5539BEAD1E0230C500440E92 /* CollectionDetailViewController.swift in Sources */,
 				55883BB91DD7C84100F9EB10 /* QuoteControllerOne.swift in Sources */,
 				55883B891DD7A5A900F9EB10 /* ViewController.swift in Sources */,
+				55B818AB1E0B7F4A00C39B9D /* DataSource.swift in Sources */,
 				55883BCA1DD82AE000F9EB10 /* HitList.xcdatamodeld in Sources */,
 				5539BEA11DFE598800440E92 /* WebViewController.swift in Sources */,
 				55883BB51DD7AB8B00F9EB10 /* ItemTableViewCell.swift in Sources */,
 				55883B871DD7A5A900F9EB10 /* AppDelegate.swift in Sources */,
 				5539BEAB1E01073D00440E92 /* QuoteDataSet.swift in Sources */,
+				55E6F4561E0DC3A0004DC473 /* GoalMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

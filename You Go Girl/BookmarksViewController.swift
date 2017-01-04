@@ -28,69 +28,20 @@ var savedBookmarks = [NSManagedObject]()
         class BookmarksViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
         override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.clearsSelectionOnViewWillAppear = false
-
-        collectionView?.register(BookmarkPhotoCell.self, forCellWithReuseIdentifier: "bookmarkCell")
         
-        collectionView?.delegate = self
-        
-    }
-    
-    //HIGHLIGHT FUNCTION // NOTE THIS DOESNT WORK
-    
-    func highlightCell(indexPath : NSIndexPath, flag: Bool) {
-                
-    let cell = collectionView?.cellForItem(at: indexPath as IndexPath)
-                
-    if flag {
-                cell?.contentView.layer.borderWidth = 3
-                cell?.contentView.layer.borderColor = UIColor.black.cgColor
+            self.collectionView?.allowsSelection = true
+            
+            super.viewDidLoad()
 
-                } else {
-                    cell?.contentView.layer.borderWidth = 0
-                }
+           // self.clearsSelectionOnViewWillAppear = false
+
+            collectionView?.register(BookmarkPhotoCell.self, forCellWithReuseIdentifier: "bookmarkCell")
+        
+            collectionView?.delegate = self
+        
             }
-        
-            func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            highlightCell(indexPath: indexPath, flag: true)
-        }
     
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        highlightCell(indexPath: indexPath, flag: false)
-    }
-
-    
-
-    
-    
-    // PASS DATA ON TO DETAIL VIEW CONTROLLER
-    
-    /*
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // retrieve selected cell &amp; fruit
-        if let indexPath = getIndexPathForSelectedCell() {
-            
-            let imageInfoToPass = dataSource.fruitsInGroup(indexPath.section)[indexPath.row]
-            
-            let DetailVC = segue.destination as! CollectionDetailViewController
-            DetailVC.fruit = fruit
-        }
-    }
-    
-    func getIndexPathForSelectedCell() -> NSIndexPath? {
-    
-        var indexPath:NSIndexPath?
-        
-        if collectionView?.indexPathsForSelectedItems.count -&gt 0 {
-            indexPath = collectionView?.indexPathsForSelectedItems[0] as? NSIndexPath
-    }
-    return indexPath
-    }
-
-     */
+     
     
     // OTHER OVERRIDE FUNCS
     
@@ -110,7 +61,39 @@ var savedBookmarks = [NSManagedObject]()
         return savedBookmarks.count
     }
 
-    
+            // MOVE TO DETAIL VIEW OF CELL
+            
+            var selectedIndex: Int!
+          
+            
+            override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+                print("I segued!")
+                selectedIndex = indexPath.item
+                print(selectedIndex)
+                performSegue(withIdentifier: "favoriteDetailSegue", sender: self)
+                let cell = collectionView.cellForItem(at: indexPath as IndexPath)
+                cell?.layer.borderWidth = 2.0
+                cell?.layer.borderColor = UIColor.gray.cgColor
+
+            }
+            
+   
+            override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                if segue.identifier == "favoriteDetailSegue" {
+                    let collectionDetailViewController = segue.destination as! CollectionDetailViewController
+                    let indexPath = collectionView?.indexPathsForSelectedItems?[0]
+                    let cell = collectionView?.cellForItem(at: indexPath!)
+                   
+                    // NEED TO FIGURE OUT HOW TO ACCESS THE IMAGE OR LABEL NAME ASSOCIATED WITH THE SELECTED CELL IN ORDER TO PASS IT ON
+                    
+                    //let quoteData = cell.imageView.image
+                    
+                    collectionDetailViewController.selectedIndex = selectedIndex
+                }
+                print("prep for segue")
+            }
+
+            
     // CONFIGURE THE COLLECTION VIEW BASICS, EG THE CELL
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,8 +112,13 @@ var savedBookmarks = [NSManagedObject]()
         let imagePulls = quoteSelect.quoteImageValues[quotePulls!]
         
         cell.imageView.image = UIImage(named: imagePulls!)
-        
 
+        
+        //trying to fix selection issue
+        cell.isSelected = true
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        
+        
         return cell
     }
 
@@ -186,12 +174,73 @@ var savedBookmarks = [NSManagedObject]()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-    }
+            }
     
+            
 
-    
-
-    
-
-
+            
 }
+            
+            
+    
+            
+
+            
+            
+            
+            
+            //HIGHLIGHT FUNCTION // NOTE THIS DOESNT WORK
+            
+            /*
+             
+             func highlightCell(indexPath : NSIndexPath, flag: Bool) {
+             
+             let cell = collectionView?.cellForItem(at: indexPath as IndexPath)
+             
+             if flag {
+             cell?.contentView.layer.borderWidth = 3
+             cell?.contentView.layer.borderColor = UIColor.black.cgColor
+             
+             } else {
+             cell?.contentView.layer.borderWidth = 0
+             }
+             }
+             
+             func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+             highlightCell(indexPath: indexPath, flag: true)
+             
+             }
+             
+             
+             func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+             highlightCell(indexPath: indexPath, flag: false)
+             }
+             
+             */
+            
+            
+            // PASS DATA ON TO DETAIL VIEW CONTROLLER
+            
+            /*
+             func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+             // retrieve selected cell &amp; fruit
+             if let indexPath = getIndexPathForSelectedCell() {
+             
+             let imageInfoToPass = dataSource.fruitsInGroup(indexPath.section)[indexPath.row]
+             
+             let DetailVC = segue.destination as! CollectionDetailViewController
+             DetailVC.fruit = fruit
+             }
+             }
+             
+             func getIndexPathForSelectedCell() -> NSIndexPath? {
+             
+             var indexPath:NSIndexPath?
+             
+             if collectionView?.indexPathsForSelectedItems.count -&gt 0 {
+             indexPath = collectionView?.indexPathsForSelectedItems[0] as? NSIndexPath
+             }
+             return indexPath
+             }
+             
+             */

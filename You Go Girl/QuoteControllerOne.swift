@@ -76,9 +76,13 @@ class QuoteControllerOne: UIViewController {
         
         // SWIPE SETUP
         
-        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(QuoteControllerOne.swipeLeft))
-        recognizer.direction = .left
-        self.view .addGestureRecognizer(recognizer)
+        let leftRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(QuoteControllerOne.swipeLeft))
+        leftRecognizer.direction = .left
+        self.view .addGestureRecognizer(leftRecognizer)
+        
+        let rightRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(QuoteControllerOne.swipeRight))
+        rightRecognizer.direction = .right
+        self.view .addGestureRecognizer(rightRecognizer)
         
         
         // QUOTE LABEL SETUP
@@ -194,10 +198,13 @@ class QuoteControllerOne: UIViewController {
     
     // SWIPE SEGUE
 
-    func swipeLeft(recognizer : UISwipeGestureRecognizer) {
-    self.performSegue(withIdentifier: "mySegue", sender: self)
+    func swipeLeft(leftRecognizer : UISwipeGestureRecognizer) {
+    self.performSegue(withIdentifier: "segueToMenu", sender: self)
     }
     
+    func swipeRight(rightRecognizer : UISwipeGestureRecognizer) {
+        self.performSegue(withIdentifier: "segueToBookmarks", sender: self)
+    }
 
     func clickLinkButton(sender:UIButton){
         self.performSegue(withIdentifier: "segueToWeb", sender: self)
